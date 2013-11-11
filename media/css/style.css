@@ -1,0 +1,245 @@
+/**
+*	General
+*/
+
+.buttons {
+	float: right;
+}
+
+body {
+	height: 100vh;
+	overflow: hidden;
+}
+
+nav .img-circle {
+	height: 40px;
+	margin-right: 20px;
+	float: left;
+	margin-top: -10px;
+}
+
+/**
+*	Friends
+*/
+
+#add_friend input[type=text] {
+	display: inline-block;
+	width: 70%;
+	margin-left: 10px;
+}
+
+.add_friend .btn {
+	margin-left: 87px;
+}
+
+.box {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #000000;
+	border-radius: 10px;
+	background: #FFFFFF;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.box h3 {
+	float: left;
+	margin: 0 10px;
+}
+
+.box .btn {
+	margin-left: 10px;
+}
+
+.thumbnail img.img-circle {
+	height: 200px;
+}
+
+body.Friends.modal-open input[type=text] {
+	width: 300px !important;
+}
+
+
+
+.user-search {
+	width: 90%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 22px;
+}
+
+.user-search a {
+	border-radius: 9999px;
+	border: 1px solid #000;
+	margin-top: 2px;
+}
+
+/**
+*	Messages
+*/
+
+.area {
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+	margin-bottom: -20px;
+	margin-top: -20px;
+	display: table;
+	width: 951px;
+	border-right: 1px solid black;
+}
+
+.area .recent {
+	width: 300px;
+	height: 100%;
+	float: left;
+	border-right: 1px solid black;
+	border-left:  1px solid black;
+	clear: both;
+	position: absolute;
+	overflow: scroll;
+}
+
+.area .recent-box {
+	width: 100%;
+	margin: 0;
+	height: 50px;
+	border-bottom: 1px solid black;
+	background: silver;
+}
+
+.area .recent-box.new {
+	background: black;
+}
+
+.area .recent-box h3 {
+	margin: 0 auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.area .message-area {
+	height: 100%;
+	width: 650px;
+	float: left;
+	margin-left: 300px;
+}
+
+.area .message-area .message-area-info {
+	height: 50px;
+	vertical-align: middle;
+	border-bottom: 1px solid black;
+	padding-left: 10px;
+}
+
+.area .message-area .message-area-messages {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-bottom: 10px;
+}
+
+.area .message-area .message-area-send {
+	width: 100%;
+	height: 150px;
+	padding: 10px 25px;
+	background: #ccc;
+	border-top: 1px solid black;
+}
+
+.area .message-area .message-area-send textarea {
+	border: 1px solid black;
+	width: 100%;
+	clear: both;
+	resize: none;
+	padding: 10px;
+}
+
+.area .message-area .message-area-send textarea:focus {
+	outline: 0;
+}
+
+.area .message-area .message-area-send input[type=submit] {
+	border-radius: 0;
+	margin: 0;
+	float: right;
+	border: 1px solid black;
+	border-top:0;
+	position: relative;
+	margin-top: -1px;
+}
+
+.area .message-area .message-area-send input[type=submit]:hover {
+	background: #fff;
+}
+
+
+.message-message-user {
+position: relative;
+width: 500px;
+overflow: hidden;
+padding: 10px;
+text-align: right;
+background: #ccc;
+border: #0000FF solid 5px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+clear: both;
+float: right;
+margin-right: 20px;
+margin-top: 10px;
+}
+
+.message-message-friend {
+position: relative;
+width: 500px;
+overflow: hidden;
+padding: 10px;
+text-align: left;
+background: #ccc;
+border: green solid 5px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+clear: both;
+float: left;
+margin-left: 20px;
+margin-top: 10px;
+}
+
+/* Let's get this party started */
+.message-area-messages::-webkit-scrollbar {
+    display: none;
+}
+
+/**
+*	Login / Register
+*/
+
+body.login input[type=password], body.register input[type=password] {
+	margin: 0;
+}
+
+body.login button[type=submit],  body.register button[type=submit]{
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+body.login input[name=password] {
+	border-radius: 0;
+	border-bottom: 0;
+}
+
+body.register input {
+	border-radius: 0;
+}
+
+body.login input[name=repeat] {
+	border-radius: 0;
+	border-bottom: 0;
+}
+
+body.register input[name=username] {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
