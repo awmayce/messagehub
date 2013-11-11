@@ -15,9 +15,6 @@ $(document).ready(function() {
      }
   });
 
-  // Add Friend Animation
-  $(".user-search a").hide();
-
   // Animate background color of new conversation when new message
   setInterval(function(){
     $(".recent .new").css('background', 'black').delay(4000).css('background', 'white');

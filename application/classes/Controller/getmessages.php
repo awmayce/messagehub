@@ -23,7 +23,22 @@ Class Controller_GetMessages extends Controller {
 		$message = ORM::factory('message')
 			->where('conversation', '=', $conversation_id)
 			->order_by('date', 'ASC')
+			->find_all();
+
+		$countMessages = count($message);
+
+		if($countMessages < 20) {
+			$offset = 0;
+		}
+		else {
+			$offset = $countMessages-'20';
+		}
+		
+		$message = ORM::factory('message')
+			->where('conversation', '=', $conversation_id)
+			->order_by('date', 'ASC')
 			->limit('20')
+			->offset($offset)
 			->find_all();
 
 		foreach ($message as $message) {
@@ -33,7 +48,7 @@ Class Controller_GetMessages extends Controller {
 				else {
 					$class = 'message-message-friend';
 				}
-			$message = "<div class=".$class.">".htmlentities($message->body)."</div>";
+			$message = "<div class=".$class.">".Text::auto_link(HTML::entities($message->body))."</div>";
 			echo $message;
 		}
 		

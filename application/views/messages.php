@@ -43,7 +43,7 @@ var grbData = $.ajax({
 
 
 					$('.message-area-messages').html("<p>"+message_body+"</p>");
-					$(".message-area-messages").scrollTop($(".message-area-messages")[0].scrollHeight);
+					//$(".message-area-messages").scrollTop($(".message-area-messages")[0].scrollHeight);
 		        }
 		});
 
@@ -65,6 +65,7 @@ var grbData = $.ajax({
 });
 </script>
 <?php endif ?>
+<audio style="visibility: hidden;" id="notification" preload src="<?php echo URL::base('http').'media/audio/notification.mp3' ?>"></audio>
 
 <div class='area'>
 	<div class='recent'></div>

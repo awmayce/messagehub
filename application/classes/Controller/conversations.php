@@ -26,6 +26,7 @@ class Controller_Conversations extends Controller {
 					//echo $isRead->read;
 
 					if($isRead->read === NULL) {
+						echo "<script type='text/javascript'> document.getElementById('notification').play(); </script>";
 						echo "<div class='recent-box new'><h3>".HTML::anchor(URL::site('main/message/'.$friend_user->id), $friend_user->username)."</h3></div>";
 					}
 					else {

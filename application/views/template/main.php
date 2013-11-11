@@ -29,12 +29,7 @@
 		    <ul class="nav navbar-nav navbar-right">
 		      <li class="dropdown">
 		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		        	<?php if(@file_get_contents($location)) {
-		                echo "<img src='".$location."' class='img-circle'>";
-		              } else {
-		                $placeholder = URL::base('http').'media/images/user_avatar/placeholder.png';
-		                echo "<img src='".$placeholder."' class='img-circle'>";
-		              } ?>
+		        	<span class="glyphicon glyphicon-user"></span>
 		        	<?php echo $user->username." <span class='badge'>".$notification."</span>" ?>
 		        </a>
 		        <ul class="dropdown-menu">
