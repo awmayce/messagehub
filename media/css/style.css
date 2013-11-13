@@ -6,7 +6,7 @@
 	float: right;
 }
 
-body {
+body.messages {
 	height: 100vh;
 	overflow: hidden;
 }
@@ -68,10 +68,46 @@ body.Friends.modal-open input[type=text] {
 	font-size: 22px;
 }
 
-.user-search a {
+.user-search a.btn {
 	border-radius: 9999px;
 	border: 1px solid #000;
 	margin-top: 2px;
+}
+
+/**
+*	Profile
+*/
+
+body.profile ul.nav-pills {
+	float: right;
+	position: relative;
+	margin-top: -100px;
+}
+
+body.profile .hidden {
+	visibility: hidden;
+}
+
+body.profile div.details, body.profile div.edit, body.profile div.password {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 50px;
+	background: #C9C9C9;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+body.profile .details img {
+	height: 200px;
+	display: inline-block;
+	border-radius: 10px;
+	vertical-align: bottom;	
+}
+
+body.profile .details-text {
+	display: inline-block;
+	margin: 0 20px;
+	vertical-align: top;
 }
 
 /**

@@ -24,6 +24,7 @@
 		    <ul class="nav navbar-nav">
 		      <li class='<?php echo @$nav_messages ?>'><?php echo HTML::anchor(URL::site('main'), 'Messages') ?></li>
 		      <li class='<?php echo @$nav_friends ?>'><?php  echo HTML::anchor(URL::site('friends'), 'Friends') ?></li>
+		      <li class='<?php echo @$nav_profile ?>'><?php  echo HTML::anchor(URL::site('profile'), 'Profile') ?></li>
 		    </ul>
 		    <?php $location = URL::base('http').'media/images/user_avatar/'.md5($user->username).'.jpg'; ?>
 		    <ul class="nav navbar-nav navbar-right">

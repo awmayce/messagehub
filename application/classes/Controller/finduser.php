@@ -27,9 +27,10 @@ Class Controller_finduser extends Controller {
 				}
 				else {
 					$username = $result['username'];
+					$profile = URL::site('profile/user/'.$result['id']);
 					$link = URL::site('friends/send_request/'.$result['id']);
 
-					echo "<tr><td><div class='user-search'>".$username."</td><td><a href=".$link." class='btn btn-primary pull-right'> + </a></div></td></tr>";	
+					echo "<tr><td><div class='user-search'>".HTML::anchor($profile, $username)."</td><td><a href=".$link." class='btn btn-primary pull-right'> + </a></div></td></tr>";	
 				}	
 			}
 		}	

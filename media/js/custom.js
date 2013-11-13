@@ -19,4 +19,14 @@ $(document).ready(function() {
   setInterval(function(){
     $(".recent .new").css('background', 'black').delay(4000).css('background', 'white');
   }, 2000);
+  
+
 });
+
+// Profile Pills
+function profilePills(name) {
+  $("body.profile .profile").addClass("hidden");
+  $("body.profile ." + name).removeClass("hidden");
+  $("body.profile ul.nav-pills li").removeClass("active");
+  $("body.profile ul.nav-pills li." + name).addClass("active");
+}

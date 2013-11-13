@@ -43,7 +43,7 @@ $( document ).ready(function() {
             ?>
             
             <div class="caption">
-              <h3 style="text-align:center;"><?php echo $friend_user->username; ?></h3>
+              <h3 style="text-align:center;"><?php echo HTML::anchor(URL::site('profile/user/'.$friend->friendid), $friend_user->username); ?></h3>
               <p><a href="<?php echo URL::site('main/message/'.$friend_user->id) ?>" class="btn btn-primary">Message</a>
                  <a href="<?php echo URL::site('friends/remove/'.$friend_user->id) ?>" class="btn btn-default">Remove Friend</a></p>
             </div>

@@ -71,7 +71,7 @@ class Controller_Main extends Controller_Layout {
 			$delete_conversation->delete();
 		}
 
-		$this->template->title = $friend->username;
+		$this->template->title = "messages ".$friend->username;
 		$this->template->nav_messages = 'active';
 		$this->template->content = View::factory('messages')
 			->bind('conversation', $conversation)
@@ -137,13 +137,15 @@ class Controller_Main extends Controller_Layout {
 
 		$date = date_create();
 
-		$send = ORM::factory('message');
-		$send->sender = $user;
-		$send->reciever = $friend_id;
-		$send->conversation = $conversation_id;
-		$send->body = htmlentities($this->request->post('send-message'));
-		$send->date = date_timestamp_get($date);
-		$send->save();
+		if(isset($this->request->post['send-message'])) {
+			$send = ORM::factory('message');
+			$send->sender = $user;
+			$send->reciever = $friend_id;
+			$send->conversation = $conversation_id;
+			$send->body = htmlentities($this->request->post('send-message'));
+			$send->date = date_timestamp_get($date);
+			$send->save();
+		}
 
 		header("Location:".URL::site('main/message/'.$friend_id));
 		die();
