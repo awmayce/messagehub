@@ -1,5 +1,4 @@
 <?php
-
 $countries = array(
 "United States" => "United States",
 "United Kingdom" => "United Kingdom",
@@ -244,78 +243,49 @@ $countries = array(
 "Zimbabwe" => "Zimbabwe"
   );
 ?>
+<script>
+	$(document).ready(function() { 
+	  $(".country").select2({
+	    placeholder: "Select a Country",
+	    allowClear: true
+	  });
+	});
+</script>
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+<div class="container">
+	<div class="jumbotron">
+		<?php echo Form::open(NULL, array('enctype' => 'multipart/form-data', 'class' => 'form-signin')); ?>
+		        <h2 class="form-signin-heading">Change account details</h2>
+				<ul class="nav nav-pills">
+				  <li><?php echo HTML::anchor('profile', 'Details'); ?></li>
+				  <li class="active"><?php echo HTML::anchor('profile/edit', 'Edit'); ?></li>
+				  <li><?php echo HTML::anchor('profile/password', 'Change Password'); ?></li>
+				</ul>
 
-    <title>Register | MessageHub</title>
+		<div class="edit profile">
 
-    <!-- Bootstrap core CSS -->
-    <?php echo HTML::style('/media/css/bootstrap.min.css') ?>
-    <?php echo HTML::style('/media/css/style.css') ?>
+		        <?php if(isset($fail)): ?>
+		        <div class="alert alert-danger">
+		          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		          <?php echo $fail ?>
+		        </div>
+		      <?php endif ?>
+		        
+		        <?php echo Form::label(NULL, 'Email address', array('class' => 'form-control')) ?>
+		        <?php echo form::input('email', $user->email, array('class' => 'form-control')) ?>
 
-    <!-- Custom styles for this template -->
-    <?php echo HTML::style('/media/css/signin.css') ?>
+		        <?php echo Form::label(NULL, 'Full name', array('class' => 'form-control')) ?>
+		        <?php echo form::input('fullname', $user->full_name, array('class' => 'form-control')); ?>
 
-    <!-- jQuery -->
-    <?php echo HTML::script('http://code.jquery.com/jquery.js') ?>
+		        <?php echo Form::label(NULL, 'Avatar', array('class' => 'form-control')) ?>
+		        <?php echo form::file('avatar', array('class' => 'form-control', 'id' => 'avatar')) ?>
 
-    <!-- Select2 -->
-    <?php echo HTML::style('/media/select2/select2.css') ?>
-    <?php echo HTML::script('/media/select2/select2.js') ?>
+		        <?php echo Form::submit('submit', 'Submit', array('class' => 'form-control btn btn-primary')) ?>
 
-    <script>
-        $(document).ready(function() { 
-          $("#country").select2({
-            placeholder: "Select a Country",
-            allowClear: true
-          });
-        });
-    </script>
+		      <?php echo Form::close(); ?>
+		</div>
+	</div>
+</div>
 
-  </head>
-
-  <body class="register">
-
-    <div class="container">
-
-      
-
-      <?php echo Form::open(NULL, array('enctype' => 'multipart/form-data', 'class' => 'form-signin')); ?>
-        <h2 class="form-signin-heading">Register here:</h2>
-        <?php if(isset($fail)): ?>
-        <div class="alert alert-danger">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <?php echo $fail ?>
-        </div>
-      <?php endif ?>
-        <?php echo form::input('username', '', array('placeholder' => 'Choose a username', 'class' => 'form-control','autofocus')) ?>
-        <?php echo form::input('email', '', array('placeholder' => 'Enter a valid email address', 'class' => 'form-control')) ?>
-        <?php echo form::password('password', '', array('placeholder' => 'Enter a password', 'class' => 'form-control')) ?>
-        <?php echo form::password('repeat', '', array('placeholder' => 'Repeat password', 'class' => 'form-control')) ?>
-        <?php echo form::file('avatar', array('class' => 'form-control', 'id' => 'avatar')) ?>
-        <?php echo form::input('fullname', '', array('placeholder' => 'Full Name', 'class' => 'form-control')); ?>
-        <?php echo form::select('country', $countries, '', array('id' => 'country', 'class' => 'form-control')); ?>
-
-        <?php
-          echo form::radio('gender', 'Male', '', array('class' => 'gender-radio', 'id' => 'male', 'checked' => 'checked'));
-          echo Form::label('male', '<span></span><p>Male</p>');
-          echo "<br />";
-          echo form::radio('gender', 'Female', '', array('class' => 'gender-radio', 'id' => 'female'));
-          echo Form::label('female', '<span></span><p>Female</p>'); 
-        ?>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-      <?php echo Form::close(); ?>
-
-    </div> <!-- /container -->
-
-    
-    <?php echo HTML::script('/media/js/bootstrap.min.js') ?>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-  </body>
-</html>

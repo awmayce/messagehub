@@ -2,9 +2,9 @@
 	<div class="jumbotron">
 		<h2>User Profile</h2>
 		<ul class="nav nav-pills">
-		  <li class="active details"  onclick="profilePills('details')"><a href="#">Details</a></li>
-		  <li class="edit"><a href="#" onclick="profilePills('edit')">Edit</a></li>
-		  <li class="password"><a href="#" onclick="profilePills('password')">Change Password</a></li>
+		  <li class="active"><?php echo HTML::anchor('profile', 'Details'); ?></li>
+		  <li><?php echo HTML::anchor('profile/edit', 'Edit'); ?></li>
+		  <li><?php echo HTML::anchor('profile/password', 'Change Password'); ?></li>
 		</ul>
 
 		<div class="details profile">
@@ -24,14 +24,6 @@
 		        <small><?php echo $user->country ?></small><br />
 		        <small><?php echo $user->gender ?></small>
 		    </div>
-
-	    </div>
-
-	    <div class="hidden edit profile">
-
-	    </div>
-
-	    <div class="hidden password profile">
 
 	    </div>
 

@@ -2,7 +2,7 @@
 	<div class="jumbotron">
 		<h2>User Profile</h2>
 
-		<div class="profile-details">
+		<div class="proofile details">
 			<?php
 	          $location = URL::base('http').'media/images/user_avatar/'.md5($profile->username).'.jpg';
 	          if(@file_get_contents($location)) {

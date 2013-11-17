@@ -16,7 +16,7 @@ class Controller_User extends Controller {
 
 			if($success)
 			{
-				header('location:'.URL::site('main'));
+				header('location:'.URL::site('profile'));
 				die();
 			}
 			else
@@ -39,7 +39,7 @@ class Controller_User extends Controller {
 			$post = $this->request->post();
 			$username_unique = ORM::factory('user')->where('username', '=', $post['username'])->find_all();
 			$email_unique = ORM::factory('user')->where('email', '=', $post['email'])->find_all();
-			if(isset($post['username']) and isset($post['username']) and isset($post['password'])) 
+			if(isset($post['username']) and isset($post['username']) and isset($post['password']) and isset($post['fullname'])) 
 			{
 				if(count($username_unique) == '0') //Start username validation
 				{
@@ -57,10 +57,14 @@ class Controller_User extends Controller {
 					            {
 					            	echo 'Failed';
 					            }
+
 								$newuser = ORM::factory('user');
 								$newuser->username = $post['username'];
 								$newuser->password = $post['password'];
 								$newuser->email    = $post['email'];
+								$newuser->gender = $post['gender'];
+								$newuser->full_name = $post['fullname'];
+								$newuser->country = $post['country'];
 								$newuser->save();
 
 								$role = ORM::factory('role')->where('name', '=', 'login')->find();

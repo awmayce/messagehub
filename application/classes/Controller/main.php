@@ -137,15 +137,20 @@ class Controller_Main extends Controller_Layout {
 
 		$date = date_create();
 
-		if(isset($this->request->post['send-message'])) {
-			$send = ORM::factory('message');
-			$send->sender = $user;
-			$send->reciever = $friend_id;
-			$send->conversation = $conversation_id;
-			$send->body = htmlentities($this->request->post('send-message'));
-			$send->date = date_timestamp_get($date);
-			$send->save();
+		$post = $this->request->post();
+
+		if(empty($post['send-message'])) {
+			header("Location:".URL::site('main/message/'.$friend_id));
+			die();
 		}
+
+		$send = ORM::factory('message');
+		$send->sender = $user;
+		$send->reciever = $friend_id;
+		$send->conversation = $conversation_id;
+		$send->body = htmlentities($this->request->post('send-message'));
+		$send->date = date_timestamp_get($date);
+		$send->save();
 
 		header("Location:".URL::site('main/message/'.$friend_id));
 		die();
